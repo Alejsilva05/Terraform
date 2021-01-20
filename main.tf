@@ -3,7 +3,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "b1" {
   bucket = "my-tf-test-bucket-12312312312"
   acl    = "private"
 
@@ -13,8 +13,8 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
-resource "aws_s3_bucket_object" "object" {
-  bucket = "${aws_s3_bucket.b.id}"
+resource "aws_s3_bucket_object" "object1" {
+  bucket = "${aws_s3_bucket.b1.id}"
   key    = "hello-world.txt"
   source = "arquivo.txt"
 }
